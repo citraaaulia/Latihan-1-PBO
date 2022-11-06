@@ -5,6 +5,8 @@ public class Pegawai {
     private String address;
     private int number;
     public Pegawai (String name, String address, int number){
+    //Parameter yang ada pada constructor ini menjadi sumber yang akan     //diturunkan ke class Gaji 
+    //sebagai class childnya, maka, dapat dikatakan bahwa terjadi downcasting
         System.out.println("Menyusun Pegawai");
         this.name = name;
         this.address = address;
@@ -35,6 +37,8 @@ ini class Child
 
 //Salary
 public class Gaji extends Pegawai
+//disini, class pegawai mewariskan sifat yang dimilikinya ke class gaji
+//dan pewarisan ini menjadi syarat untuk polymorphisme
 {
     private double salary;
     public Gaji(String name, String address, int number, double salary){
@@ -42,6 +46,9 @@ public class Gaji extends Pegawai
         setSalary(salary);
     }
     public void mailCheck(){
+    //mailCheck merupakan method yang diturunkan oleh class Pegawai ke Class Gaji, namun, isi dari method
+        //ini berbeda dengan method mailCheck yang ada pada Parent Classnya, artinya, telah dilakukan upcasting disini.
+
         System.out.println("Memeriksa kelas gaji dalam surat ");
         System.out.println("Surat tertuju untuk " +getName()+ " dengan gaji" + salary);
     }
